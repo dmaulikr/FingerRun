@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="mywatchapp_WatchKit_Extension">
+                    <items>
+                        <imageView width="84" height="84" alignment="center" verticalAlignment="center" image="finger" id="s1A-Xx-Beg"/>
+                        <label width="135" height="18" alignment="center" verticalAlignment="center" text="Finger Run" textAlignment="center" numberOfLines="6" id="zVU-5i-9wU">
+                            <fontDescription key="font" type="system" weight="medium" pointSize="16"/>
+                        </label>
+                        <button width="136" height="34" alignment="center" verticalAlignment="center" title="Start" id="tcN-Gk-vkO">
+                            <color key="backgroundColor" red="0.25199115876114148" green="0.82128400259067358" blue="0.66184154256023819" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="start" destination="AgC-eL-Hgc" id="4oZ-ID-BHp"/>
+                                <segue destination="29V-S7-a7I" kind="push" id="DER-NU-5fV"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="357" y="331"/>
+        </scene>
+        <!--Running Controller-->
+        <scene sceneID="ClG-Fj-GMI">
+            <objects>
+                <controller contentMode="bottomLeft" spacing="0.0" id="29V-S7-a7I" customClass="runningController" customModule="mywatchapp_WatchKit_Extension">
+                    <items>
+                        <imageView width="1" alignment="left" image="long1-1" id="dt6-JX-voF"/>
+                        <imageView width="1" alignment="left" image="long1-2" id="k4A-J3-P0J"/>
+                        <imageView width="1" alignment="left" image="long2" id="5vQ-mu-HkD"/>
+                        <imageView width="1" alignment="left" image="long3" id="ogj-hp-4PM"/>
+                        <imageView width="1" alignment="left" image="long4" id="iwO-4f-8MI"/>
+                        <imageView width="1" alignment="left" image="long5" id="GCL-Vk-g1z"/>
+                        <imageView width="1" alignment="left" image="long6" id="sSd-Ug-OJk"/>
+                        <imageView width="1" alignment="left" image="long7" id="b0r-hX-H3q"/>
+                        <imageView width="1" alignment="left" image="long8" id="TPo-2N-DfX"/>
+                        <imageView width="1" alignment="left" image="long9" id="NOH-qC-Rp5"/>
+                        <imageView width="1" alignment="left" image="long10" id="TUq-s5-F77"/>
+                        <group width="1" height="23" alignment="left" id="P9S-N6-mPQ"/>
+                        <button width="120" alignment="center" title="FINISH" id="ZeR-MI-5PE">
+                            <color key="backgroundColor" red="0.9984092116355896" green="0.73785632848739624" blue="0.014678771607577801" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="30"/>
+                            <connections>
+                                <action selector="finishButton" destination="29V-S7-a7I" id="CEe-Rw-XVO"/>
+                                <segue destination="UhL-Cd-GmZ" kind="push" id="Dlf-Lc-bog"/>
+                            </connections>
+                        </button>
+                        <timer width="72" alignment="left" id="9kD-LD-gwV">
+                            <color key="textColor" red="1" green="0.59850704669952393" blue="0.0040854103863239288" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" weight="medium" pointSize="24"/>
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                    </items>
+                    <color key="backgroundColor" red="1" green="0.59947755538736669" blue="0.0096098035353116007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="watchTimer" destination="9kD-LD-gwV" id="7mq-3c-fTd"/>
+                        <segue destination="UhL-Cd-GmZ" kind="relationship" relationship="nextPage" id="uNs-Vu-Jwd"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="625" y="2634"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="mywatchapp_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Score Controller-->
+        <scene sceneID="IXG-uz-zkN">
+            <objects>
+                <controller id="UhL-Cd-GmZ" customClass="scoreController" customModule="mywatchapp_WatchKit_Extension">
+                    <items>
+                        <label height="12" alignment="center" text="Calories" id="hjA-DF-1BS">
+                            <fontDescription key="font" type="system" pointSize="12"/>
+                        </label>
+                        <label width="25" height="33" alignment="center" text="0" id="0E3-YD-Fah">
+                            <fontDescription key="font" type="system" weight="medium" pointSize="44"/>
+                        </label>
+                        <group width="1" height="12" alignment="left" id="lKj-UD-yNx">
+                            <items>
+                                <label width="74" alignment="left" text="Run Time" id="y6Y-we-NUd">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                                <label alignment="right" text="Distance    " id="6mB-X2-K6c">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" height="33" alignment="left" id="DV1-LF-qdL">
+                            <items>
+                                <label width="76" height="30" alignment="left" text="00:00" id="tjz-nU-2lJ">
+                                    <fontDescription key="font" type="system" weight="medium" pointSize="24"/>
+                                </label>
+                                <label width="77" height="30" alignment="right" text="10m" id="gzD-8d-zYy">
+                                    <fontDescription key="font" type="system" weight="medium" pointSize="24"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" height="36" alignment="left" id="4yF-Gc-bcY">
+                            <items>
+                                <button width="136" height="34" alignment="center" verticalAlignment="center" title="Restart" id="S7b-Lw-zms">
+                                    <color key="backgroundColor" red="0.2519911588" green="0.82128400260000001" blue="0.66184154260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="start" destination="AgC-eL-Hgc" id="OWs-8u-9U2"/>
+                                        <segue destination="AgC-eL-Hgc" kind="push" id="o0v-pX-i9s"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="intervalLabel" destination="tjz-nU-2lJ" id="Ssi-cf-tZf"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="878" y="5018"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dlf-Lc-bog"/>
+    </inferredMetricsTieBreakers>
+</document>
